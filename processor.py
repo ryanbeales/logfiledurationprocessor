@@ -3,7 +3,7 @@ from glob import glob
 from datetime import datetime
 import re
 
-filenames = r'C:\Temp\*.txt'
+filenames = r'*.log'
 
 start_string = 'Start'
 end_string = 'End'
@@ -23,6 +23,7 @@ def process_line(line):
     
         if start_string in line:
             uuid_times[identifer] = {'start': time, 'end': None, 'duration': None}
+            return
         
         if end_string in line:
             if identifer not in uuid_times.keys():
